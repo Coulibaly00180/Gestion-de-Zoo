@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des enclos{% endblock %}
+
+{% block body %}
+    <h1>Gestion des enclos du zoo</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Nom</th>
+                <th>Superficie</th>
+                <th>Limites d'animaux</th>
+                <th>Quarantaine</th>
+            </tr>
+           {% for enclo in enclos %}
+            <tr>
+                <td>{{ espace.nom }}</td>
+                <td>{{ espace.superficie }}</td>
+        <!--on doit marquer espace date ouverture et fermeture-->
+                <td>
+                    <a href="{{path("app_espace_modifier")}}" class="btn btn-primary">Modifier</a>
+                    <a href="{{path("app_espace_supprimer")}}" class="btn btn-danger">Supprimer</a>
+                    <a href="{{path("app_enclos",{"idEspace":espace.id})}}" class="btn btn-warning">Enclos</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

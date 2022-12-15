@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des espaces{% endblock %}
+
+{% block body %}
+    <h1>Gestion des espaces du zoo</h1>
+    <table class="table table-striped">
+            <tr>
+                <th>Nom</th>
+                <th>Superficie</th>
+               <!--on doit marquer espace date ouverture et fermeture-->
+               <th>Options</th>
+            </tr>
+            {% for espace in espaces %}
+            <tr>
+                <td>{{ espace.nom }}</td>
+                <td>{{ espace.superficie }}</td>
+        <!--on doit marquer espace date ouverture et fermeture-->
+                <td>
+                    <a href="{{ path("app_espace_modifier, {"id": espace.id})")}}" class="btn btn-primary">Modifier</a>
+                    <a href="{{ path("app_espace_supprimer, {"id": espace.id})")}}" class="btn btn-danger">Supprimer</a>
+                    <a href="{{ path("app_enclos",{"id": espace.id})}}" class="btn btn-warning">Enclos</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href ="{{path("app_espace_ajouter")}}" class="btn btn-success">Ajouter</a>
+{% endblock %}

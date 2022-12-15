@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer l'animal{% endblock %}
+
+{% block body %}
+    <h1>Supprimer l'espace <i>{{ animal.nom }} ?</i></h1>
+    {{ form(formulaire) }}
+    {#je vais mettre un petit bouton retour...#}
+    <a href="#" class="btn btn-default">Retour</a>
+{% endblock %}

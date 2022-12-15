@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des enclos{% endblock %}
+
+{% block body %}
+    <h1>Gestion des enclos du zoo</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Nom</th>
+                <th>Superficie</th>
+                <th>Limites d'animaux</th>
+                <th>Quarantaine</th>
+            </tr>
+           {% for enclo in enclos %}
+            <tr>
+                <td>{{ enclo.nom }}</td>
+                <td>{{ enclo.superficie }}</td>
+                <td>{{ enclo.nb_maximal_animaux}}</td>
+                <td>{{ enclo.quarantaine}}</td>
+                <td>
+                    <a href="{{ path("app_enclos_modifier", {"id": enclo.id}) }}" class="btn btn-primary">Modifier</a>
+                    <a href="{{ path("app_enclos_supprimer", {"id": enclo.id}) }}" class="btn btn-danger">Supprimer</a>
+                    <a href="{{path("app_animal", {"idEnclo":enclo.id} )}}" class="btn btn-warning">Enclos</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href ="{{path("app_enclos_ajouter")}}" class="btn btn-success">Ajouter</a>
+{% endblock %}
