@@ -1,7 +1,3 @@
-# Symfony-Group
-Projet symfony en groupe
+# GESTION DE ZOO
 
-Membres du groupe
-    Coulibaly Abdoulaye Christian, 
-    Achille Kervarec, 
-    Cherry Rosaline
+Par Coulibaly Christian
